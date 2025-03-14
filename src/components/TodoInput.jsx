@@ -1,5 +1,4 @@
 import { LucideStar, LucideSparkles } from "lucide-react";
-
 const getRandomPosition = (position) => {
   if (position === "top-right") {
     return {
@@ -18,9 +17,35 @@ const getRandomPosition = (position) => {
   return {};
 };
 
-const TodoInput = () => {
+const TodoInput = ({
+  task,
+  setTask,
+  addTask,
+  isEdit,
+  inputRef,
+  updateTask,
+}) => {
+  const handleSubmission = (e) => {
+    e.preventDefault();
+
+    if (task.trim() !== "") {
+      if (!isEdit) {
+        addTask({ id: Date.now(), date: Date.now(), description: task });
+        setTask("");
+      } else {
+        updateTask(task);
+        setTask("");
+        window.location.reload();
+      }
+    }
+  };
+
   return (
-    <div className="relative bg-purple-50 px-6 py-5 rounded-xl max-w-md w-full overflow-hidden">
+    <section
+      className={`relative bg-purple-50 px-6 py-5 rounded-xl max-w-md w-full overflow-hidden ${
+        isEdit ? "shadow-md transition-shadow duration-400" : "shadow-none"
+      }`}
+    >
       {/* Doodles */}
       <div
         className="absolute text-purple-400"
@@ -37,17 +62,24 @@ const TodoInput = () => {
 
       {/* Content */}
       <h2 className="text-base font-bold text-purple-700 mb-4">Add Task</h2>
-      <div className="flex items-center gap-2">
+      <form className="flex items-center gap-2">
         <input
           type="text"
           className="flex-1 bg-white border-2 border-purple-500 outline-none py-1.5 px-1.5 text-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 shadow-md"
           placeholder="What needs to be done?"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          ref={inputRef}
         />
-        <button className="rounded-full bg-yellow-500 text-white px-8 py-[0.5rem] hover:bg-yellow-600 transition font-medium">
-          Add
+        <button
+          type="submit"
+          onClick={handleSubmission}
+          className="cursor-pointer rounded-full bg-yellow-500 text-white px-8 py-[0.5rem] hover:bg-yellow-600 transition font-medium"
+        >
+          {isEdit ? "Update" : "Add"}
         </button>
-      </div>
-    </div>
+      </form>
+    </section>
   );
 };
 
