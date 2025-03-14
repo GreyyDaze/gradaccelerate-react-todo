@@ -43,7 +43,7 @@ const DoodleOverlay = () => {
     {
       icon: <LucideCloud size={22} strokeWidth={1.5} />,
       position: {
-        bottom: "21%",
+        bottom: "17%",
         left: "3%",
         transform: "translate(-50%, -50%)",
         opacity: 0.4,
@@ -52,8 +52,8 @@ const DoodleOverlay = () => {
     {
       icon: <LucideFeather size={24} strokeWidth={1.5} />,
       position: {
-        bottom: "2%",
-        right: "3%",
+        bottom: "-1%",
+        right: "1%",
         transform: "translate(-50%, -50%)",
         opacity: 0.4,
       },
@@ -61,7 +61,7 @@ const DoodleOverlay = () => {
     {
       icon: <LucideDroplet size={20} strokeWidth={1.5} />,
       position: {
-        top: "45%",
+        top: "46.6%",
         left: "44%",
         transform: "translate(-50%, -50%)",
         opacity: 0.4,
@@ -70,7 +70,7 @@ const DoodleOverlay = () => {
     {
       icon: <LucideFlower size={26} strokeWidth={1.5} />,
       position: {
-        top: "18%",
+        top: "18.5%",
         left: "14%",
         transform: "translate(-50%, -50%)",
         opacity: 0.4,
@@ -79,8 +79,8 @@ const DoodleOverlay = () => {
     {
       icon: <LucideZap size={22} strokeWidth={1.5} />,
       position: {
-        top: "29%",
-        left: "65.5%",
+        top: "30%",
+        left: "66.5%",
         transform: "translate(-50%, -50%)",
         opacity: 0.4,
       },
@@ -92,7 +92,7 @@ const DoodleOverlay = () => {
       {doodlesWithPositions.map((doodle, index) => (
         <div
           key={index}
-          className="absolute text-purple-400 pointer-events-none z-10"
+          className="absolute text-purple-400 z-10"
           style={doodle.position}
         >
           {doodle.icon}
