@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.todo-list-container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.todo-list-container::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the track */
+}
+
+.todo-list-container::-webkit-scrollbar-thumb {
+  background: #8f81c2; /* Light purple color for the thumb */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.todo-list-container::-webkit-scrollbar-thumb:hover {
+  background: #a78bfa; /* Slightly darker purple on hover */
+}
